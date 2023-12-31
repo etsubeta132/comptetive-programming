@@ -1,16 +1,17 @@
-class Solution:
-    def maxCoins(self, piles: List[int]) -> int:
-
+class Solution(object):
+    def maxCoins(self, piles):
+        """
+        :type piles: List[int]
+        :rtype: int
+        """
         piles.sort()
-        l,r = 0,len(piles)-1
-        mx_piles = 0
-        
-        while l < r-1:
-            
-            mx_piles += piles[r-1]
-            r-=2
-            l+=1
-        
-        return mx_piles
-
-        
+        coin = 0
+        left = 0
+        right = len(piles)-1
+        while left < (right-1):
+            index = len(piles)-1
+            triplet = (piles[left],piles[right-1],piles[right]) 
+            coin += piles[right-1]
+            left +=1
+            right -= 2
+        return coin
