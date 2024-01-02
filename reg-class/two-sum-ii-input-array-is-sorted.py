@@ -1,19 +1,14 @@
-class Solution(object):
-    def twoSum(self, numbers, target):
-        """
-        :type numbers: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        index1 = 0
-        index2 = len(numbers) - 1
-        while index1 < index2:
-            total = numbers[index1] + numbers[index2]
-            if total == target:
-                return [index1+1, index2+1]
-            elif total <= target:
-                index1 += 1
-            elif total >= target:
-                index2 -= 1
-        
-        
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l,r = 0,len(numbers)-1
+
+        while l < r:
+            res =  numbers[l] + numbers[r]
+
+            if  res == target:
+                return [l+1,r+1]
+            elif res > target:
+                r-=1
+            else:
+                l+=1
+        return []
